@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "its time to post"
+title: "post for alan"
 date: 2025-12-21
 ---
 
