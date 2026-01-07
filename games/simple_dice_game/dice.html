@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <h1><emph>Let's Play &lt;3</emph></h1>
+    <h1><emph>Dice game&lt;3</emph></h1>
     <!--<p style="<b>line-height: 1.8;</b>"><emph> - - - - - - - </emph></p>-->
   <!--  <div id="CPUGrid" class="containergrid"></div>-->
 
@@ -49,7 +49,7 @@
         <div class = "player-info">
             <p class="player-name"><strong>CPU</strong></p>
 
-            <img class="dice-image"  src="dice6.png" alt="CPU dice">
+            <img class="dice-image" id="cpuDiceImage"  src="dice6.png" alt="CPU dice">
 
             <p><strong>score <span id="CPUScore">0</span></strong> </p>
         </div>
@@ -57,7 +57,31 @@
 <!--dice for two players. container has two divs of the same dice class.
 the images are labelled 1 and 2. the default dice face is 6  -->
 
+<div class = "rules">
+    <p>     </p>
+    <div class="rules-button" onclick="popupFunc()"> <strong> Rules </strong>
+        <div class="popuptext" id="myPopup">
+            <h2>Rules</h2>
+            <ul>
+                <li>Click "Roll the Dice" to roll a dice for both you and the CPU.</li>
+                <li>The number you roll will be added to your score.</li>
+                <li>The CPU will also roll a dice and add the number to its score.</li>
+                <li>The game continues until one player reaches a score of 30 or more.</li>
+                <li>The player with the highest score at that point wins!</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <script src="diceScript.js"></script>
 
+<script>
+    // Additional functionality for the popup can be added here
+    function popupFunc() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+
+</script>
 
 </html>

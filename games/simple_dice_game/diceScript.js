@@ -2,6 +2,10 @@
 var player1 = "Player 1";
 var player2 = "Player 2";
 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+} //delay function
+
 // Function to change the player name
 function editNames() {
     player1 = prompt("Change Player1 name");
@@ -26,9 +30,13 @@ function editNames() {
 //}
 
 let playerDiceValue = null; // store dice value
+let isPlayerTurn = true;    // controls whose turn it is
+
 
 // Function to roll the dice
 function rollTheDice() {
+    if (!isPlayerTurn || playerDiceValue !== null) return; // prevent rolling if not player's turn or dice already rolled
+
     setTimeout(function () {
       //  var playerDiceValue = Math.floor(Math.random() * 6) + 1;
 //        var randomNumber2 = Math.floor(Math.random() * 6) + 1;
@@ -143,26 +151,30 @@ function PlayerTurn(Cell){
         document.getElementById("PlayerScore").textContent = playerScore;
         diceImg.dataset.value = playerDiceValue;
 
+        document.querySelector(".dice-image").setAttribute("src",
+            "dice" + playerDiceValue + ".png");
 
          // store die in column
         playerColumns[column].push(playerDiceValue);
 
         //checking if same dice exists in cpu col
         if (cpuColumns[column].includes(playerDiceValue)) {
-
             //removing dice from cpu if exists in both cols
             removeMatchingDice("CPUGrid", cpuColumns, column, playerDiceValue);
         }
         //resetting dice value for next turn
         playerDiceValue = null;
+        isPlayerTurn = false; // lock player turn
 
+
+        // CPU's turn after a short delay
         setTimeout(function () {
             CPUturn("CPUGrid");
         }, 550); // Delay of 500 milliseconds (0.5 seconds)
       }
 }
 
-function CPUturn(cpuGridId) {
+async function CPUturn(cpuGridId) {
 
     const cpuGrid = document.getElementById(cpuGridId);
 
@@ -174,25 +186,45 @@ function CPUturn(cpuGridId) {
 
     if (emptyCells.length === 0) return;
 
+     //rolling dice for cpu
+
+
     const cpuDiceValue = Math.floor(Math.random() * 6) + 1;
+
+        // updating dice image to show cpu roll
+    document.querySelector("#cpuDiceImage").setAttribute("src", "dice" + cpuDiceValue + ".png");
+
+    await delay(500); //delay for effect
+
+    //choosing random empty cell
     const chosenCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
     const diceImg = document.createElement("img");
     diceImg.src = "dice" + cpuDiceValue + ".png";
+    diceImg.dataset.value = cpuDiceValue;
+
     diceImg.style.width = "100%";
     diceImg.style.height = "100%";
     diceImg.style.objectFit = "contain";
 
-    const column = Number(chosenCell.dataset.column);
 
-    diceImg.dataset.value = cpuDiceValue;
+    const column = Number(chosenCell.dataset.column);
     chosenCell.appendChild(diceImg);
 
+
+
+// updating cpu score
     cpuScore += cpuDiceValue;
     document.getElementById("CPUScore").textContent = cpuScore;
+    //checking if same dice exists in player col
+    if (playerColumns[column].includes(cpuDiceValue)) {
+        //removing dice from player if exists in both cols
+        removeMatchingDice("PlayerGrid", playerColumns, column, cpuDiceValue);
+    }
 
     cpuColumns[column].push(cpuDiceValue);
 
+    // Unlock player's turn
+    isPlayerTurn = true;
   }
-
 

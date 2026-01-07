@@ -38,6 +38,8 @@
     width: 80px;
   }
 
+
+
 .p1SubContainer {
     display: flex;
     flex-direction: column; /* Stacks children vertically (default is row) */
@@ -45,7 +47,7 @@
 
 }
 
-cpuContainer {
+.cpuContainer {
     text-align: center;
     display: inline-block;
     margin: auto;
@@ -59,6 +61,19 @@ body {
 }
 
 
+li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #5f1d0a;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    line-height: 1.5;
+
+}
+
+
 h1 {
     margin: auto;
     font-family: 'Courier New', Courier, monospace;
@@ -66,6 +81,16 @@ h1 {
     font-size: 4.5rem;
     color: #5f1d0a;
     text-align: center;
+}
+
+h2 {
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+   /* text-shadow: 5px 0 #c06969; */
+    font-size: 1rem;
+    color: #5f1d0a;
+    text-align: left;
+    margin: 20px;
 }
 
 p{
@@ -145,4 +170,87 @@ img {
     align-items: center;
     font-size: 24px;
     font-weight: bold;
+  }
+
+
+
+  /* =====POPUP STUFF====== */
+
+  /* Popup container */
+.rules {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+  }
+
+  .rules .rules-button {
+    background-color: #ff7a7a;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #cd5c5c;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+  /* The actual popup (appears on top) */
+  .rules .popuptext {
+    visibility: hidden;
+    border-radius: 25px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #cd5c5c;
+   /* width: 500px;
+    height: 500px; */
+    width: 500px;
+    height: auto;
+    background-color: #fbcaca;
+    color: #cd5c5c;
+    text-align: center;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 10000;
+    bottom: 125%;
+    left: 50%;
+   /* margin-left: -80px; */
+    transform: translateX(-50%);
+
+  }
+
+
+
+
+
+  /* Popup arrow */
+  /*.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }*/
+
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .rules .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+  /* Add animation (fade in the popup) */
+  /*@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }*/
+
+/*  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
   }
