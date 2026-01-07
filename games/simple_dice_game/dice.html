@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dice_style.css">
+    <title>Dice Game</title>
+</head>
+
+<body>
+    <h1><emph>Let's Play &lt;3</emph></h1>
+    <!--<p style="<b>line-height: 1.8;</b>"><emph> - - - - - - - </emph></p>-->
+  <!--  <div id="CPUGrid" class="containergrid"></div>-->
+
+    <div class="p1Container">
+        <div class="player-info">
+            <p class="player-name"><strong> Player</strong></p>
+
+            <img class="dice-image" src="dice6.png" alt="Player Dice">
+
+            <button type="button" class="butn"
+                onClick="rollTheDice()">
+                Roll the Dice
+            </button>
+
+            <button type="button" class="butn"
+                onClick="editNames()">
+                Edit Names
+                </button>
+
+            <p><strong>score <span id="PlayerScore">0</span></strong></p>
+        </div>
+
+        <div>
+        <div id="PlayerGrid" class="containergrid"></div>
+        </div>
+
+    </div>
+
+    <div class="p1Container">
+
+        <div>
+            <div id="CPUGrid" class="containergrid"></div>
+        </div>
+
+        <div class = "player-info">
+            <p class="player-name"><strong>CPU</strong></p>
+
+            <img class="dice-image"  src="dice6.png" alt="CPU dice">
+
+            <p><strong>score <span id="CPUScore">0</span></strong> </p>
+        </div>
+    </div>
+<!--dice for two players. container has two divs of the same dice class.
+the images are labelled 1 and 2. the default dice face is 6  -->
+
+<script src="diceScript.js"></script>
+
+
+</html>

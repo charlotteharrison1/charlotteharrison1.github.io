@@ -1,0 +1,148 @@
+.container {
+  /*  width: 70%; */
+    margin: auto;
+
+}
+
+.dice {
+    text-align: center;
+    display: inline-block;
+    /*margin: 10px;*/
+
+}
+
+.p1Container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+}
+.grid-wrapper {
+    display: flex;
+    justify-content: center; /* centers grid inside wrapper */
+    flex: 1;                 /* take remaining horizontal space */
+}
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.player-name {
+    font-size: 1.8rem;
+    color: #cf4d44;
+    margin-bottom: 10px;
+  }
+
+.dice-image {
+    width: 80px;
+  }
+
+.p1SubContainer {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically (default is row) */
+    justify-content: center; /* Centers items vertically in the container */
+
+}
+
+cpuContainer {
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7c8ba;
+}
+
+
+h1 {
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 5px 0 #c06969;
+    font-size: 4.5rem;
+    color: #5f1d0a;
+    text-align: center;
+}
+
+p{
+    font-size: auto;
+    color: #5f1d0a;
+    font-family:'Courier New', Courier, monospace;
+
+}
+
+img {
+    width: auto;
+}
+
+.bottom {
+    padding-top: 30px;
+}
+
+.butn {
+    background: #000b08;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 12px;
+    color: #ffff;
+    font-size: auto;
+    margin: 1px;
+    padding: auto auto auto;
+    text-decoration: none;
+}
+
+.butn:hover {
+    background: #232931;
+    text-decoration: none;
+}
+
+
+.dice-row {
+    display: inline-block;
+    margin: auto;
+    width: 15%;
+    height: auto;
+    text-align: center;
+}
+
+
+.containerbottom {
+    padding-top: 100px;
+    /*  grid-template-columns: auto auto auto; */
+    display: inline-block;
+    margin: auto;
+
+    /* putting in middle of page */
+
+    padding: 100px;
+    text-align: center;
+}
+
+
+.containergrid {
+    width: fit-content;    /*fixes width to content size */
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(3, 70px);
+    gap: 4px;                     /* thickness of grid lines */
+    background-color: #a15f6f;       /* grid line color */
+    padding: 4px;
+    border-radius: 6px;
+  }
+
+  .cell {
+   /* width: 700px; */
+    width: auto;
+    height: 70px;
+    background-color: #ffffff;
+    border:none; /*1px solid #ff3838;     */   /* strong cell borders */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
